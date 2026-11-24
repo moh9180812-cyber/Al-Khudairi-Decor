@@ -71,6 +71,19 @@ button.ba-more[hidden]{display:none}
 .works{height:auto !important;padding:20px 20px 50px;box-sizing:border-box}
 .work-list{max-width:900px;margin-left:auto;margin-right:auto}
 .service-box{cursor:default !important}
+footer.site-footer{background:#1f1f1f;color:#d9d4cb;text-align:right;padding:40px 20px 0;font-size:1em}
+.ft-inner{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;max-width:1000px;margin:0 auto}
+.ft-col h4{color:#d4af37;font-size:1.15em;margin:0 0 12px}
+.ft-col p{margin:0 0 10px;line-height:1.8;color:#cfc9be}
+.ft-links{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 16px}
+.ft-links a,.ft-phone{color:#f5f2ed;text-decoration:none}
+.ft-links a:hover,.ft-phone:hover{color:#d4af37}
+.ft-phone{font-weight:700;font-size:1.1em}
+.ft-social{display:flex;gap:12px;margin-top:6px}
+.ft-social a{width:42px;height:42px;border-radius:50%;background:#333;color:#d4af37;display:flex;align-items:center;justify-content:center;font-size:20px;text-decoration:none;transition:.25s}
+.ft-social a:hover{background:#d4af37;color:#1f1f1f}
+.ft-copy{margin-top:30px;padding:16px 0 90px;border-top:1px solid #3a3a3a;text-align:center;color:#a9a399;font-size:.9em}
+@media(max-width:600px){footer.site-footer{text-align:center}.ft-social{justify-content:center}.ft-links{max-width:300px;margin:0 auto;text-align:center}}
   </style>
   <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -424,8 +437,37 @@ function closeGallery(galleryId) {
        
   </section>
 
-  <footer>
-    جميع الحقوق محفوظة © 2025 ديكور الخضيري
+  <footer class="site-footer">
+    <div class="ft-inner">
+      <div class="ft-col">
+        <h4>ديكورات الخضيري</h4>
+        <p>دهانات وديكورات وتشطيبات بإشراف المهندس محمد الخضيري، خبرة أكثر من 10 سنوات في الكويت.</p>
+      </div>
+      <div class="ft-col">
+        <h4>روابط سريعة</h4>
+        <ul class="ft-links">
+          <li><a href="#home">الرئيسية</a></li>
+          <li><a href="#services">الخدمات</a></li>
+          <li><a href="#project">الأعمال</a></li>
+          <li><a href="#before-after">قبل وبعد</a></li>
+          <li><a href="#steps">خطوات العمل</a></li>
+          <li><a href="#area">محيط العمل</a></li>
+          <li><a href="#about">من نحن</a></li>
+          <li><a href="#contact">تواصل معنا</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>تواصل معنا</h4>
+        <p><a class="ft-phone" href="tel:+96555876302" dir="ltr">+965 5587 6302</a></p>
+        <div class="ft-social">
+          <a href="https://wa.me/96555876302" target="_blank" rel="noopener" aria-label="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://www.instagram.com/decor_55876302?igsh=bzJqbjFpYTRsZWN3&utm_source=qr" target="_blank" rel="noopener" aria-label="انستجرام"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/share/1CRYiKBYh6/" target="_blank" rel="noopener" aria-label="فيسبوك"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.tiktok.com/@aboazez42?_r=1&_t=ZS-91N8DAuFJFQ" target="_blank" rel="noopener" aria-label="تيك توك"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="ft-copy">جميع الحقوق محفوظة © 2026 ديكور الخضيري</div>
   </footer>
 
 
@@ -600,7 +642,6 @@ function baClose(){
 
 </body>
 </html>
-
 
 
 
