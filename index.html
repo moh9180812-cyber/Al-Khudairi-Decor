@@ -52,6 +52,22 @@
 .video-popup .video-box video{width:100%;height:auto;max-height:85vh;object-fit:contain;background:#000}
 .video-popup.active .video-box{width:92%;max-width:900px}
 @media(max-width:600px){.video-popup.active .video-box{width:96%}.video-popup .close-btn{top:10px;right:18px;font-size:38px;z-index:2}}
+
+.ba-sub{margin:50px 0 10px;color:#2f2e2c;font-size:1.5em}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:1100px;margin:20px auto 0}
+.proj-card{display:flex;gap:8px;background:#f5f2ed;padding:10px;border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,.1)}
+.proj-card.hidden{display:none}
+.pm{position:relative;width:50%;height:200px;border-radius:8px;overflow:hidden;background:#000;cursor:pointer}
+.pm img,.pm video{width:100%;height:100%;object-fit:cover;display:block}
+.pm-tag{position:absolute;top:6px;right:6px;z-index:2;background:rgba(0,0,0,.65);color:#fff;font-size:.8em;padding:2px 10px;border-radius:14px}
+.pm-play{position:absolute;bottom:8px;left:8px;z-index:2;color:#fff;background:rgba(0,0,0,.55);border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:13px;pointer-events:none}
+.proj-count{color:#777;margin:20px 0 0;font-size:.95em}
+button.ba-more{border:0;cursor:pointer;font-family:inherit;font-size:1em;margin-top:12px}
+button.ba-more[hidden]{display:none}
+#baImgBox,#baVideoBox{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;justify-content:center;align-items:center;z-index:10000}
+#baImgBox img,#baVideoBox video{max-width:94%;max-height:88vh;border-radius:10px;background:#000}
+.ba-close{position:absolute;top:12px;right:18px;color:#fff;font-size:40px;cursor:pointer;line-height:1}
+@media(max-width:600px){.pm{height:170px}}
   </style>
   <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -116,7 +132,7 @@ function closeGallery(galleryId) {
     <a href="#work">مجال عملنا</a>
     <a href="#about">من نحن</a>
     <a href="#contact">تواصل معنا</a>
-    <a href="after-befor.html">كل مشاريع قبل وبعد</a>
+    <a href="#ba-all">كل مشاريع قبل وبعد</a>
   </nav>
 
   <section id="home" class="hero">
@@ -297,7 +313,25 @@ function closeGallery(galleryId) {
         <input type="range" min="0" max="100" value="50" aria-label="مقارنة قبل وبعد">
       </div>
     </div>
-    <a class="ba-more" href="after-befor.html">شاهد كل مشاريع قبل وبعد</a>
+    <h3 id="ba-all" class="ba-sub">كل مشاريع قبل وبعد</h3>
+    <div class="proj-grid" id="projGrid">
+      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><video data-src="vids/VID-20251128-WA0001.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div><div class="pm"><span class="pm-tag">بعد</span><img loading="lazy" decoding="async" src="imgs/IMG-20251128-WA0000.jpg" alt="بعد التنفيذ" onclick="baOpenImg(this.src)"></div></div>
+      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><video data-src="vids/VID-20251128-WA0086.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div><div class="pm"><span class="pm-tag">بعد</span><img loading="lazy" decoding="async" src="imgs/IMG-20251128-WA0085.jpg" alt="بعد التنفيذ" onclick="baOpenImg(this.src)"></div></div>
+      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><video data-src="vids/VID-20251128-WA0024.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div><div class="pm"><span class="pm-tag">بعد</span><img loading="lazy" decoding="async" src="imgs/motion_photo_6910545525657754342.jpg" alt="بعد التنفيذ" onclick="baOpenImg(this.src)"></div></div>
+      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><video data-src="vids/VID-20251128-WA0030.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div><div class="pm"><span class="pm-tag">بعد</span><img loading="lazy" decoding="async" src="imgs/motion_photo_1777015963595093299.jpg" alt="بعد التنفيذ" onclick="baOpenImg(this.src)"></div></div>
+      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><video data-src="vids/VID-20251128-WA0083.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div><div class="pm"><span class="pm-tag">بعد</span><img loading="lazy" decoding="async" src="imgs/motion_photo_8913262332010338944.jpg" alt="بعد التنفيذ" onclick="baOpenImg(this.src)"></div></div>
+      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><img loading="lazy" decoding="async" src="imgs/IMG-20251128-WA0081.jpg" alt="قبل التنفيذ" onclick="baOpenImg(this.src)"></div><div class="pm"><span class="pm-tag">بعد</span><video data-src="vids/VID-20251128-WA0079.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div></div>
+      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><video data-src="vids/VID-20251128-WA0056.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div><div class="pm"><span class="pm-tag">بعد</span><video data-src="vids/VID-20251128-WA0055.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div></div>
+      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><video data-src="vids/VID-20251128-WA0011.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div><div class="pm"><span class="pm-tag">بعد</span><video data-src="vids/VID-20251128-WA0012.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div></div>
+      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><video data-src="vids/VID-20251128-WA0013.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div><div class="pm"><span class="pm-tag">بعد</span><video data-src="vids/VID-20251128-WA0014.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div></div>
+      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><video data-src="vids/VID-20251128-WA0022.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div><div class="pm"><span class="pm-tag">بعد</span><video data-src="vids/VID-20251128-WA0023.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div></div>
+      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><video data-src="vids/VID-20251128-WA0027.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div><div class="pm"><span class="pm-tag">بعد</span><video data-src="vids/VID-20251128-WA0029.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div></div>
+      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><img loading="lazy" decoding="async" src="imgs/IMG-20251128-WA0052.jpg" alt="قبل التنفيذ" onclick="baOpenImg(this.src)"></div><div class="pm"><span class="pm-tag">بعد</span><img loading="lazy" decoding="async" src="imgs/motion_photo_2774781871664187308.jpg" alt="بعد التنفيذ" onclick="baOpenImg(this.src)"></div></div>
+      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><img loading="lazy" decoding="async" src="imgs/motion_photo_2027294659284662844.jpg" alt="قبل التنفيذ" onclick="baOpenImg(this.src)"></div><div class="pm"><span class="pm-tag">بعد</span><img loading="lazy" decoding="async" src="imgs/IMG-20251128-WA0047.jpg" alt="بعد التنفيذ" onclick="baOpenImg(this.src)"></div></div>
+      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><img loading="lazy" decoding="async" src="imgs/motion_photo_5568985954799707972.jpg" alt="قبل التنفيذ" onclick="baOpenImg(this.src)"></div><div class="pm"><span class="pm-tag">بعد</span><img loading="lazy" decoding="async" src="imgs/IMG-20251128-WA0044.jpg" alt="بعد التنفيذ" onclick="baOpenImg(this.src)"></div></div>
+    </div>
+    <p class="proj-count" id="projCount"></p>
+    <button type="button" class="ba-more" id="projMore" onclick="projShowMore()">عرض المزيد</button>
   </section>
 
   <section id="steps" class="steps">
@@ -555,9 +589,40 @@ document.querySelectorAll(".ba").forEach(function(box){
 });
 </script>
 
+<div id="baImgBox" onclick="baClose()"><span class="ba-close">&times;</span><img id="baImg" alt=""></div>
+<div id="baVideoBox" onclick="if(event.target===this)baClose()"><span class="ba-close" onclick="baClose()">&times;</span><video id="baVideo" controls playsinline></video></div>
+
+<script>
+var PROJ_STEP=3;
+var projCards=[].slice.call(document.querySelectorAll("#projGrid .proj-card"));
+var projShown=0;
+function projLoadVid(card){
+  card.querySelectorAll("video[data-src]").forEach(function(v){
+    if(!v.getAttribute("src")){v.preload="metadata";v.src=v.dataset.src+"#t=0.1";}
+  });
+}
+function projRender(){
+  projCards.forEach(function(c,i){
+    var show=i<projShown;
+    c.classList.toggle("hidden",!show);
+    if(show)projLoadVid(c);
+  });
+  document.getElementById("projCount").textContent="عرض "+Math.min(projShown,projCards.length)+" من "+projCards.length+" مشروع";
+  document.getElementById("projMore").hidden=projShown>=projCards.length;
+}
+function projShowMore(){projShown+=PROJ_STEP;projRender();}
+projShown=PROJ_STEP;projRender();
+function baOpenImg(src){document.getElementById("baImg").src=src;document.getElementById("baImgBox").style.display="flex";}
+function baOpenVideo(src){var v=document.getElementById("baVideo");v.src=src;document.getElementById("baVideoBox").style.display="flex";v.play();}
+function baClose(){
+  document.getElementById("baImgBox").style.display="none";
+  var b=document.getElementById("baVideoBox"),v=document.getElementById("baVideo");
+  v.pause();v.removeAttribute("src");v.load();b.style.display="none";
+}
+</script>
+
 </body>
 </html>
-
 
 
 
