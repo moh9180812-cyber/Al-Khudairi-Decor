@@ -49,9 +49,9 @@
 .ba .ba-tag.b{left:10px}.ba .ba-tag.a{right:10px}
 .ba-more{display:inline-block;margin-top:25px;padding:12px 28px;background:#2f2e2c;color:#d4af37;border-radius:12px;text-decoration:none;font-weight:700}
 @media(max-width:600px){.quick-contact a{width:52px;height:52px}}
-.video-popup .video-box video{width:100%;height:auto;max-height:85vh;object-fit:contain;background:#000}
-.video-popup.active .video-box{width:92%;max-width:900px}
-@media(max-width:600px){.video-popup.active .video-box{width:96%}.video-popup .close-btn{top:10px;right:18px;font-size:38px;z-index:2}}
+.video-popup .video-box,.video-popup.active .video-box{width:auto !important;height:auto !important;max-width:96vw;overflow:visible;transition:none;box-shadow:none;display:flex;align-items:center;justify-content:center}
+.video-popup .video-box video,.video-popup video{width:auto !important;height:auto !important;max-width:96vw;max-height:85vh;display:block;margin:0 auto;object-fit:contain;background:#000;border-radius:10px}
+.video-popup .close-btn{top:10px;right:18px;font-size:40px;z-index:2;line-height:1}
 
 .ba-sub{margin:50px 0 10px;color:#2f2e2c;font-size:1.5em}
 .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:1100px;margin:20px auto 0}
