@@ -6,6 +6,50 @@
   <meta name="description" content="ديكورات الخضيري - خبرة في أعمال الدهانات والديكور الفاخر بإشراف المهندس محمد الخضيري">
   <title>ديكورات الخضيري</title>
   <link rel="stylesheet" href="style.css">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_AR">
+  <meta property="og:title" content="ديكورات الخضيري | دهانات وديكورات وتشطيبات في الكويت">
+  <meta property="og:description" content="خبرة أكثر من 10 سنوات في الدهانات والديكورات الداخلية بإشراف المهندس محمد الخضيري. احجز استشارتك الآن.">
+  <meta property="og:image" content="https://moh9180812-cyber.github.io/Al-Khudairi-Decor/imgs/ph2.jpg">
+  <meta property="og:url" content="https://moh9180812-cyber.github.io/Al-Khudairi-Decor/">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+/* ===== إضافات النسخة المعدلة ===== */
+.quick-contact{position:fixed;bottom:20px;left:20px;z-index:999;display:flex;flex-direction:column;gap:12px}
+.quick-contact a{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+.quick-contact .qc-wa{background:#25d366}
+.quick-contact .qc-call{background:#d4af37;color:#222}
+.stats{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;padding:40px 20px;background:#2f2e2c;color:#f5f2ed;text-align:center}
+.stats div{min-width:150px}
+.stats strong{display:block;font-size:2.2em;color:#d4af37}
+.stats span{font-size:1em}
+.steps{padding:60px 20px;text-align:center;background:#f5f2ed}
+.steps h2{color:#2f2e2c;font-size:2em}
+.steps-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;max-width:1000px;margin:30px auto 0}
+.step{background:#fff;border-radius:14px;padding:25px 20px;width:200px;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+.step .num{width:46px;height:46px;border-radius:50%;background:#d4af37;color:#222;font-weight:800;font-size:1.3em;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.step h3{margin:6px 0;color:#2f2e2c}
+.step p{margin:0;color:#555;font-size:.95em;line-height:1.7}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;max-width:1000px;margin:30px auto 0}
+.why-card{background:#f5f2ed;border-radius:14px;padding:25px 18px;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+.why-card i{font-size:2em;color:#d4af37;margin-bottom:10px}
+.why-card h4{margin:8px 0;color:#2f2e2c}
+.why-card p{margin:0;color:#555;line-height:1.8;font-size:.95em}
+.why-intro{max-width:700px;margin:10px auto;line-height:1.9;color:#555}
+.ba-section{padding:60px 20px;text-align:center;background:#fff}
+.ba-section h2{color:#2f2e2c;font-size:2em}
+.ba-wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;margin-top:25px}
+.ba{position:relative;width:min(320px,90vw);aspect-ratio:3/4;overflow:hidden;border-radius:14px;box-shadow:0 4px 14px rgba(0,0,0,.2);direction:ltr;user-select:none;touch-action:pan-y}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.ba .ba-before{clip-path:inset(0 50% 0 0)}
+.ba .ba-line{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;box-shadow:0 0 6px rgba(0,0,0,.5);pointer-events:none}
+.ba .ba-line::after{content:"\2194";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;background:#fff;color:#222;display:flex;align-items:center;justify-content:center;font-size:20px}
+.ba input[type=range]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ba .ba-tag{position:absolute;top:10px;padding:4px 12px;border-radius:20px;background:rgba(0,0,0,.6);color:#fff;font-size:.85em;z-index:2}
+.ba .ba-tag.b{left:10px}.ba .ba-tag.a{right:10px}
+.ba-more{display:inline-block;margin-top:25px;padding:12px 28px;background:#2f2e2c;color:#d4af37;border-radius:12px;text-decoration:none;font-weight:700}
+@media(max-width:600px){.quick-contact a{width:52px;height:52px}}
+  </style>
   <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
@@ -63,35 +107,43 @@ function closeGallery(galleryId) {
     <a href="#home">الرئيسية</a>
     <a href="#services">الخدمات</a>
     <a href="#project">الأعمال</a>
+    <a href="#before-after">قبل وبعد</a>
+    <a href="#steps">خطوات العمل</a>
     <a href="#area">محيط العمل</a>
     <a href="#work">مجال عملنا</a>
     <a href="#about">من نحن</a>
     <a href="#contact">تواصل معنا</a>
-    <a href="after-befor.html">مشاريع قبل وبعد</a>
+    <a href="after-befor.html">كل مشاريع قبل وبعد</a>
   </nav>
 
   <section id="home" class="hero">
     <h2>لمسة فنية راقية تميز كل بيت</h2>
   </section>
 
+  <section class="stats">
+    <div><strong>+10</strong><span>سنوات خبرة</span></div>
+    <div><strong>33</strong><span>منطقة نغطيها في الكويت</span></div>
+    <div><strong>3</strong><span>خدمات رئيسية</span></div>
+  </section>
+
   <section id="services" class="services">
     <h2>خدماتنا</h2>
     <div class="service-box" onclick="openVideo('v1')">
-      <img src="imgs/ph26.jpg" alt="دهانات">
+      <img loading="lazy" decoding="async" src="imgs/ph26.jpg" alt="دهانات">
       <div class="service-overlay">شاهد بنفسك</div>
       <h3> دهانات داخلية</h3>
       <p>تنفيذ أحدث الدهانات باستخدام أجود الخامات وأحدث التقنيات لضمان الفخامة والجودة.</p>
     </div>
 
     <div class="service-box" onclick="openVideo('v2')">
-      <img src="imgs/ph3.jpg" alt="خشب" >  
+      <img loading="lazy" decoding="async" src="imgs/ph3.jpg" alt="خشب" >  
       <div class="service-overlay">شاهد بنفسك</div>
       <h3>ديكورات خشبية</h3>
       <p>أعمال خشبية راقية بأساليب حديثة وكلاسيكية تضيف لمسة فنية للمنزل.</p>
     </div>
 
     <div class="service-box" onclick="openVideo('v3')">
-      <img src="imgs/ph28.jpg" alt="تشطيبات">
+      <img loading="lazy" decoding="async" src="imgs/ph28.jpg" alt="تشطيبات">
       <div class="service-overlay">شاهد بنفسك</div>
       <h3>تشطيبات كاملة</h3>
       <p>من التصميم إلى التنفيذ بأعلى معايير الجودة والفخامة.</p>
@@ -101,7 +153,7 @@ function closeGallery(galleryId) {
   <div id="v1" class="video-popup">
   <span class="close-btn" onclick="closeVideo('v1')">&times;</span>
   <div class="video-box">
-    <video controls>
+    <video controls preload="none">
       <source src="vids/v24.MP4">
     </video>
   </div>
@@ -110,7 +162,7 @@ function closeGallery(galleryId) {
 <div id="v2" class="video-popup">
   <span class="close-btn" onclick="closeVideo('v2')">&times;</span>
   <div class="video-box">
-    <video controls>
+    <video controls preload="none">
       <source src="vids/v26.MP4">
     </video>
   </div>
@@ -119,7 +171,7 @@ function closeGallery(galleryId) {
 <div id="v3" class="video-popup">
   <span class="close-btn" onclick="closeVideo('v3')">&times;</span>
   <div class="video-box">
-    <video controls>
+    <video controls preload="none">
       <source src="vids/v25.MP4">
     </video>
   </div>
@@ -129,28 +181,28 @@ function closeGallery(galleryId) {
     <h2>معرض الأعمال</h2>
     
     <div class="project-item" onclick="openGallery('gallery1')">
-        <img src="imgs/ph2.jpg" class="cover" alt="معرض 1">
+        <img loading="lazy" decoding="async" src="imgs/ph2.jpg" class="cover" alt="معرض 1">
         <div class="project-overlay">
             لرؤية المزيد<br>اضغط هنا
         </div>
      </div>
      
      <div class="project-item" onclick="openGallery('gallery2')">
-        <img src="imgs/ph1.jpg" class="cover" alt="معرض 2">
+        <img loading="lazy" decoding="async" src="imgs/ph1.jpg" class="cover" alt="معرض 2">
         <div class="project-overlay">
             لرؤية المزيد<br>اضغط هنا
         </div>
      </div>
      
      <div class="project-item" onclick="openGallery('gallery3')">
-        <img src="imgs/ph9.jpg" class="cover" alt="معرض 3">
+        <img loading="lazy" decoding="async" src="imgs/ph9.jpg" class="cover" alt="معرض 3">
         <div class="project-overlay">
             لرؤية المزيد<br>اضغط هنا
         </div>
      </div>
      
      <div class="project-item" onclick="openGallery('gallery4')">
-        <img src="imgs/ph10.jpg" class="cover" alt="معرض 4">
+        <img loading="lazy" decoding="async" src="imgs/ph10.jpg" class="cover" alt="معرض 4">
         <div class="project-overlay">
             لرؤية المزيد<br>اضغط هنا
         </div>
@@ -160,14 +212,14 @@ function closeGallery(galleryId) {
      <div id="gallery1" class="gallery">
         <span class="close" onclick="closeGallery('gallery1')">&times;</span>
         <div class="content">
-          <img src="imgs/ph2.jpg" alt="معرض 1">
-          <img src="imgs/ph3.jpg" alt="معرض 1">
-          <img src="imgs/ph4.jpg" alt="معرض 1">
-          <img src="imgs/ph28.jpg" alt="معرض 1">
-          <img src="imgs/ph27.jpg" alt="معرض 1">
-          <img src="imgs/ph13.jpg" alt="معرض 1">
-          <img src="imgs/ph14.jpg" alt="معرض 1">
-          <img src="imgs/ph34.jpeg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph2.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph3.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph4.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph28.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph27.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph13.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph14.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph34.jpeg" alt="معرض 1">
           </div>
      </div> 
 
@@ -176,14 +228,14 @@ function closeGallery(galleryId) {
         <span class="close" onclick="closeGallery('gallery2')">&times;</span>
 
         <div class="content">
-          <img src="imgs/ph1.jpg" alt="معرض 1">
-          <img src="imgs/ph26.jpg" alt="معرض 1">
-          <img src="imgs/ph25.jpg" alt="معرض 1">
-          <img src="imgs/ph5.jpg" alt="معرض 1">
-          <img src="imgs/ph23.jpg" alt="معرض 1">
-          <img src="imgs/ph8.jpg" alt="معرض 1">
-          <img src="imgs/ph32.jpeg" alt="معرض 1">
-          <img src="imgs/ph33.jpeg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph1.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph26.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph25.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph5.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph23.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph8.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph32.jpeg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph33.jpeg" alt="معرض 1">
           </div>
      </div> 
 
@@ -192,14 +244,14 @@ function closeGallery(galleryId) {
         <span class="close" onclick="closeGallery('gallery3')">&times;</span>
 
         <div class="content">
-          <img src="imgs/ph9.jpg" alt="معرض 1">
-          <img src="imgs/ph22.jpg" alt="معرض 1">
-          <img src="imgs/ph21.jpg" alt="معرض 1">
-          <img src="imgs/ph20.jpg" alt="معرض 1">
-          <img src="imgs/ph19.jpg" alt="معرض 1">
-          <img src="imgs/ph7.jpg" alt="معرض 1">
-          <img src="imgs/ph30.jpeg" alt="معرض 1">
-          <img src="imgs/ph31.jpeg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph9.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph22.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph21.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph20.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph19.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph7.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph30.jpeg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph31.jpeg" alt="معرض 1">
           </div>
      </div> 
 
@@ -208,20 +260,52 @@ function closeGallery(galleryId) {
         <span class="close" onclick="closeGallery('gallery4')">&times;</span>
 
         <div class="content">
-          <img src="imgs/ph10.jpg" alt="معرض 1">
-          <img src="imgs/ph18.jpg" alt="معرض 1">
-          <img src="imgs/ph17.jpg" alt="معرض 1">
-          <img src="imgs/ph16.jpg" alt="معرض 1">
-          <img src="imgs/ph15.jpg" alt="معرض 1">
-          <img src="imgs/ph6.jpg" alt="معرض 1">
-          <img src="imgs/ph24.jpeg" alt="معرض 1">
-          <img src="imgs/ph29.jpeg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph10.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph18.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph17.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph16.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph15.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph6.jpg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph24.jpeg" alt="معرض 1">
+          <img loading="lazy" decoding="async" src="imgs/ph29.jpeg" alt="معرض 1">
           </div>
      </div> 
   </section>
 
 
 
+
+  <section id="before-after" class="ba-section">
+    <h2>قبل وبعد</h2>
+    <p>حرّك الخط لترى الفرق</p>
+    <div class="ba-wrap">
+      <div class="ba">
+        <img loading="lazy" decoding="async" src="imgs/motion_photo_2774781871664187308.jpg" alt="بعد التنفيذ">
+        <img loading="lazy" decoding="async" class="ba-before" src="imgs/IMG-20251128-WA0052.jpg" alt="قبل التنفيذ">
+        <span class="ba-tag b">قبل</span><span class="ba-tag a">بعد</span>
+        <div class="ba-line"></div>
+        <input type="range" min="0" max="100" value="50" aria-label="مقارنة قبل وبعد">
+      </div>
+      <div class="ba">
+        <img loading="lazy" decoding="async" src="imgs/IMG-20251128-WA0047.jpg" alt="بعد التنفيذ">
+        <img loading="lazy" decoding="async" class="ba-before" src="imgs/motion_photo_2027294659284662844.jpg" alt="قبل التنفيذ">
+        <span class="ba-tag b">قبل</span><span class="ba-tag a">بعد</span>
+        <div class="ba-line"></div>
+        <input type="range" min="0" max="100" value="50" aria-label="مقارنة قبل وبعد">
+      </div>
+    </div>
+    <a class="ba-more" href="after-befor.html">شاهد كل مشاريع قبل وبعد</a>
+  </section>
+
+  <section id="steps" class="steps">
+    <h2>خطوات العمل معنا</h2>
+    <div class="steps-grid">
+      <div class="step"><div class="num">1</div><h3>المعاينة</h3><p>نتواصل معك ونحدد موعد لمعاينة المكان.</p></div>
+      <div class="step"><div class="num">2</div><h3>عرض السعر</h3><p>نقدم لك سعراً واضحاً بعد المعاينة.</p></div>
+      <div class="step"><div class="num">3</div><h3>التنفيذ</h3><p>نبدأ العمل بدقة وفي الموعد المتفق عليه.</p></div>
+      <div class="step"><div class="num">4</div><h3>التسليم</h3><p>نسلمك المكان جاهزاً ونتأكد من رضاك.</p></div>
+    </div>
+  </section>
 
 <section id="area" class="service-areas">
   <h2>المناطق التي يغطيها المهندس</h2>
@@ -285,28 +369,21 @@ function closeGallery(galleryId) {
 
   <section id="about" class="about">
     <h2>من نحن</h2>
-    <img src="imgs/WhatsApp Image 2025-11-20 at 3.16.27 PM.jpeg" alt="المهندس محمد الخضيري" style="width:220px;height:220px;border-radius:50%;object-fit:cover;display:block;margin:20px auto;box-shadow:0 4px 14px rgba(0,0,0,.25);">
+    <img loading="lazy" decoding="async" src="imgs/WhatsApp Image 2025-11-20 at 3.16.27 PM.jpeg" alt="المهندس محمد الخضيري" style="width:220px;height:220px;border-radius:50%;object-fit:cover;display:block;margin:20px auto;box-shadow:0 4px 14px rgba(0,0,0,.25);">
     <p>
-      نحن في <strong>ديكور الخضيري</strong> بقيادة المهندس <strong>محمد الخضيري</strong> نقدم خبرة تمتد لأكثر من 10 سنوات في مجال الدهانات والديكورات الداخلي .
+      نحن في <strong>ديكور الخضيري</strong> بقيادة المهندس <strong>محمد الخضيري</strong> نقدم خبرة تمتد لأكثر من 10 سنوات في مجال الدهانات والديكورات الداخلية.
       نحرص على تنفيذ كل مشروع بدقة عالية ولمسة فنية تجمع بين الفخامة والجودة لتلبية ذوق كل عميل.
     </p>
 
-  <h2>      لماذا تختار شركة ديكور الخضيري؟</h2>
-في ديكور الخضيري نؤمن أن المنزل أو المكتب ليس مجرد مساحة… بل هو هوية تعكس ذوقك وتفاصيل شخصيتك. لذلك نعمل على تقديم حلول ديكور ودهانات حديثة تجمع بين الجودة العالية والفخامة والدقة في التنفيذ.
-               <h4>✔ خبرة تمتد لسنوات داخل الكويت</h4>         
-لدينا فريق متخصص يعرف جيدًا احتياجات السوق الكويتي ويهتم بأدق التفاصيل ليضمن لك نتيجة تتجاوز توقعاتك.
-     <h4> ✔ استخدام أفضل الخامات والدهانات</h4>
-نستخدم خامات ذات جودة عالية، مقاومة للعوامل الجوية، آمنة، وتمنح المكان لمسة راقية تدوم لسنوات.
-      <h4> ✔ تصاميم حديثة تواكب الذوق العصري   </h4>
-نقدم أحدث أساليب الديكور واللمسات الفنية المبتكرة، لنحوّل أي مساحة لعمل فني مميز.
-       <h4>✔ التزام بالمواعيد ومعايير العمل الاحترافية</h4>
-نلتزم بالوقت المتفق عليه، وننفذ العمل بنظام ودقة دون أي تعطيل لحياة العميل اليومية.
-       <h4>✔ أسعار تنافسية وخيارات متنوعة</h4>
-نوفر باقات تناسب جميع الاحتياجات، مع المحافظة على أعلى مستوى من الجودة.
-  </section>
-
-  
-
+  <h2>لماذا تختار شركة ديكور الخضيري؟</h2>
+  <p class="why-intro">في ديكور الخضيري نؤمن أن المنزل أو المكتب ليس مجرد مساحة... بل هو هوية تعكس ذوقك وتفاصيل شخصيتك. لذلك نعمل على تقديم حلول ديكور ودهانات حديثة تجمع بين الجودة العالية والفخامة والدقة في التنفيذ.</p>
+  <div class="why-grid">
+    <div class="why-card"><i class="fa-solid fa-award"></i><h4>خبرة تمتد لسنوات داخل الكويت</h4><p>لدينا فريق متخصص يعرف جيدًا احتياجات السوق الكويتي ويهتم بأدق التفاصيل ليضمن لك نتيجة تتجاوز توقعاتك.</p></div>
+    <div class="why-card"><i class="fa-solid fa-paint-roller"></i><h4>استخدام أفضل الخامات والدهانات</h4><p>نستخدم خامات ذات جودة عالية، مقاومة للعوامل الجوية، آمنة، وتمنح المكان لمسة راقية تدوم لسنوات.</p></div>
+    <div class="why-card"><i class="fa-solid fa-palette"></i><h4>تصاميم حديثة تواكب الذوق العصري</h4><p>نقدم أحدث أساليب الديكور واللمسات الفنية المبتكرة، لنحوّل أي مساحة لعمل فني مميز.</p></div>
+    <div class="why-card"><i class="fa-solid fa-clock"></i><h4>التزام بالمواعيد ومعايير العمل الاحترافية</h4><p>نلتزم بالوقت المتفق عليه، وننفذ العمل بنظام ودقة دون أي تعطيل لحياة العميل اليومية.</p></div>
+    <div class="why-card"><i class="fa-solid fa-tags"></i><h4>أسعار تنافسية وخيارات متنوعة</h4><p>نوفر باقات تناسب جميع الاحتياجات، مع المحافظة على أعلى مستوى من الجودة.</p></div>
+  </div>
 <div class="social-float">
     <div class="main-btn" onclick="toggleSocial()">
         <i class="fa-solid fa-share-nodes"></i>
@@ -447,10 +524,12 @@ dots.forEach((dot, i) => {
 });
 
 // Auto play
+if (testimonials.length) {
 setInterval(() => {
   current = (current + 1) % testimonials.length;
   showTestimonial(current);
 }, 4000);
+}
 </script>
 
   <script>
@@ -460,9 +539,21 @@ function toggleSocial() {
 </script>
 
 
+<div class="quick-contact">
+  <a class="qc-wa" href="https://wa.me/96555876302" target="_blank" rel="noopener" aria-label="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+  <a class="qc-call" href="tel:+96555876302" aria-label="اتصل الآن"><i class="fa-solid fa-phone"></i></a>
+</div>
+
+<script>
+document.querySelectorAll(".ba").forEach(function(box){
+  var r=box.querySelector("input"),b=box.querySelector(".ba-before"),l=box.querySelector(".ba-line");
+  function u(){var v=r.value;b.style.clipPath="inset(0 "+(100-v)+"% 0 0)";l.style.left=v+"%";}
+  r.addEventListener("input",u);u();
+});
+</script>
+
 </body>
 </html>
-
 
 
 
