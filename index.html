@@ -165,23 +165,7 @@ function closeGallery(galleryId) {
 
   <section id="services" class="services">
     <h2>خدماتنا</h2>
-    <div class="service-box">
-      <img loading="lazy" decoding="async" src="imgs/ph26.jpg" alt="دهانات">
-      <h3> دهانات داخلية</h3>
-      <p>تنفيذ أحدث الدهانات باستخدام أجود الخامات وأحدث التقنيات لضمان الفخامة والجودة.</p>
-    </div>
-
-    <div class="service-box">
-      <img loading="lazy" decoding="async" src="imgs/ph3.jpg" alt="خشب" >
-      <h3>ديكورات خشبية</h3>
-      <p>أعمال خشبية راقية بأساليب حديثة وكلاسيكية تضيف لمسة فنية للمنزل.</p>
-    </div>
-
-    <div class="service-box">
-      <img loading="lazy" decoding="async" src="imgs/ph28.jpg" alt="تشطيبات">
-      <h3>تشطيبات كاملة</h3>
-      <p>من التصميم إلى التنفيذ بأعلى معايير الجودة والفخامة.</p>
-    </div>
+    <div id="servicesList" style="display:contents"></div>
   </section>
 
   
@@ -190,97 +174,7 @@ function closeGallery(galleryId) {
 
   <section id="project" class="project-section">
     <h2>معرض الأعمال</h2>
-    
-    <div class="project-item" onclick="openGallery('gallery1')">
-        <img loading="lazy" decoding="async" src="imgs/ph2.jpg" class="cover" alt="معرض 1">
-        <div class="project-overlay">
-            لرؤية المزيد<br>اضغط هنا
-        </div>
-     </div>
-     
-     <div class="project-item" onclick="openGallery('gallery2')">
-        <img loading="lazy" decoding="async" src="imgs/ph1.jpg" class="cover" alt="معرض 2">
-        <div class="project-overlay">
-            لرؤية المزيد<br>اضغط هنا
-        </div>
-     </div>
-     
-     <div class="project-item" onclick="openGallery('gallery3')">
-        <img loading="lazy" decoding="async" src="imgs/ph9.jpg" class="cover" alt="معرض 3">
-        <div class="project-overlay">
-            لرؤية المزيد<br>اضغط هنا
-        </div>
-     </div>
-     
-     <div class="project-item" onclick="openGallery('gallery4')">
-        <img loading="lazy" decoding="async" src="imgs/ph10.jpg" class="cover" alt="معرض 4">
-        <div class="project-overlay">
-            لرؤية المزيد<br>اضغط هنا
-        </div>
-     </div>
-
-
-     <div id="gallery1" class="gallery">
-        <span class="close" onclick="closeGallery('gallery1')">&times;</span>
-        <div class="content">
-          <img loading="lazy" decoding="async" src="imgs/ph2.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph3.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph4.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph28.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph27.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph13.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph14.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph34.jpeg" alt="معرض 1">
-          </div>
-     </div> 
-
-
-     <div id="gallery2" class="gallery">
-        <span class="close" onclick="closeGallery('gallery2')">&times;</span>
-
-        <div class="content">
-          <img loading="lazy" decoding="async" src="imgs/ph1.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph26.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph25.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph5.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph23.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph8.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph32.jpeg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph33.jpeg" alt="معرض 1">
-          </div>
-     </div> 
-
-
-     <div id="gallery3" class="gallery">
-        <span class="close" onclick="closeGallery('gallery3')">&times;</span>
-
-        <div class="content">
-          <img loading="lazy" decoding="async" src="imgs/ph9.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph22.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph21.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph20.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph19.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph7.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph30.jpeg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph31.jpeg" alt="معرض 1">
-          </div>
-     </div> 
-
-
-     <div id="gallery4" class="gallery">
-        <span class="close" onclick="closeGallery('gallery4')">&times;</span>
-
-        <div class="content">
-          <img loading="lazy" decoding="async" src="imgs/ph10.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph18.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph17.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph16.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph15.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph6.jpg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph24.jpeg" alt="معرض 1">
-          <img loading="lazy" decoding="async" src="imgs/ph29.jpeg" alt="معرض 1">
-          </div>
-     </div> 
+    <div id="galleryList" style="display:contents"></div>
   </section>
 
 
@@ -289,39 +183,9 @@ function closeGallery(galleryId) {
   <section id="before-after" class="ba-section">
     <h2>قبل وبعد</h2>
     <p>حرّك الخط لترى الفرق</p>
-    <div class="ba-wrap">
-      <div class="ba">
-        <img loading="lazy" decoding="async" src="imgs/motion_photo_2774781871664187308.jpg" alt="بعد التنفيذ">
-        <img loading="lazy" decoding="async" class="ba-before" src="imgs/IMG-20251128-WA0052.jpg" alt="قبل التنفيذ">
-        <span class="ba-tag b">قبل</span><span class="ba-tag a">بعد</span>
-        <div class="ba-line"></div>
-        <input type="range" min="0" max="100" value="50" aria-label="مقارنة قبل وبعد">
-      </div>
-      <div class="ba">
-        <img loading="lazy" decoding="async" src="imgs/IMG-20251128-WA0047.jpg" alt="بعد التنفيذ">
-        <img loading="lazy" decoding="async" class="ba-before" src="imgs/motion_photo_2027294659284662844.jpg" alt="قبل التنفيذ">
-        <span class="ba-tag b">قبل</span><span class="ba-tag a">بعد</span>
-        <div class="ba-line"></div>
-        <input type="range" min="0" max="100" value="50" aria-label="مقارنة قبل وبعد">
-      </div>
-    </div>
+    <div class="ba-wrap" id="sliderList"></div>
     <h3 id="ba-all" class="ba-sub">كل مشاريع قبل وبعد</h3>
-    <div class="proj-grid" id="projGrid">
-      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><video data-src="vids/VID-20251128-WA0001.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div><div class="pm"><span class="pm-tag">بعد</span><img loading="lazy" decoding="async" src="imgs/IMG-20251128-WA0000.jpg" alt="بعد التنفيذ" onclick="baOpenImg(this.src)"></div></div>
-      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><video data-src="vids/VID-20251128-WA0086.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div><div class="pm"><span class="pm-tag">بعد</span><img loading="lazy" decoding="async" src="imgs/IMG-20251128-WA0085.jpg" alt="بعد التنفيذ" onclick="baOpenImg(this.src)"></div></div>
-      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><video data-src="vids/VID-20251128-WA0024.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div><div class="pm"><span class="pm-tag">بعد</span><img loading="lazy" decoding="async" src="imgs/motion_photo_6910545525657754342.jpg" alt="بعد التنفيذ" onclick="baOpenImg(this.src)"></div></div>
-      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><video data-src="vids/VID-20251128-WA0030.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div><div class="pm"><span class="pm-tag">بعد</span><img loading="lazy" decoding="async" src="imgs/motion_photo_1777015963595093299.jpg" alt="بعد التنفيذ" onclick="baOpenImg(this.src)"></div></div>
-      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><video data-src="vids/VID-20251128-WA0083.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div><div class="pm"><span class="pm-tag">بعد</span><img loading="lazy" decoding="async" src="imgs/motion_photo_8913262332010338944.jpg" alt="بعد التنفيذ" onclick="baOpenImg(this.src)"></div></div>
-      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><img loading="lazy" decoding="async" src="imgs/IMG-20251128-WA0081.jpg" alt="قبل التنفيذ" onclick="baOpenImg(this.src)"></div><div class="pm"><span class="pm-tag">بعد</span><video data-src="vids/VID-20251128-WA0079.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div></div>
-      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><video data-src="vids/VID-20251128-WA0056.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div><div class="pm"><span class="pm-tag">بعد</span><video data-src="vids/VID-20251128-WA0055.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div></div>
-      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><video data-src="vids/VID-20251128-WA0011.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div><div class="pm"><span class="pm-tag">بعد</span><video data-src="vids/VID-20251128-WA0012.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div></div>
-      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><video data-src="vids/VID-20251128-WA0013.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div><div class="pm"><span class="pm-tag">بعد</span><video data-src="vids/VID-20251128-WA0014.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div></div>
-      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><video data-src="vids/VID-20251128-WA0022.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div><div class="pm"><span class="pm-tag">بعد</span><video data-src="vids/VID-20251128-WA0023.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div></div>
-      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><video data-src="vids/VID-20251128-WA0027.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div><div class="pm"><span class="pm-tag">بعد</span><video data-src="vids/VID-20251128-WA0029.mp4" muted playsinline preload="none" onclick="baOpenVideo(this.dataset.src)"></video><span class="pm-play">&#9654;</span></div></div>
-      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><img loading="lazy" decoding="async" src="imgs/IMG-20251128-WA0052.jpg" alt="قبل التنفيذ" onclick="baOpenImg(this.src)"></div><div class="pm"><span class="pm-tag">بعد</span><img loading="lazy" decoding="async" src="imgs/motion_photo_2774781871664187308.jpg" alt="بعد التنفيذ" onclick="baOpenImg(this.src)"></div></div>
-      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><img loading="lazy" decoding="async" src="imgs/motion_photo_2027294659284662844.jpg" alt="قبل التنفيذ" onclick="baOpenImg(this.src)"></div><div class="pm"><span class="pm-tag">بعد</span><img loading="lazy" decoding="async" src="imgs/IMG-20251128-WA0047.jpg" alt="بعد التنفيذ" onclick="baOpenImg(this.src)"></div></div>
-      <div class="proj-card"><div class="pm"><span class="pm-tag">قبل</span><img loading="lazy" decoding="async" src="imgs/motion_photo_5568985954799707972.jpg" alt="قبل التنفيذ" onclick="baOpenImg(this.src)"></div><div class="pm"><span class="pm-tag">بعد</span><img loading="lazy" decoding="async" src="imgs/IMG-20251128-WA0044.jpg" alt="بعد التنفيذ" onclick="baOpenImg(this.src)"></div></div>
-    </div>
+    <div class="proj-grid" id="projGrid"></div>
     <p class="proj-count" id="projCount"></p>
     <button type="button" class="ba-more" id="projMore" onclick="projShowMore()">عرض المزيد</button>
   </section>
@@ -602,20 +466,13 @@ function toggleSocial() {
   <a class="qc-call" href="tel:+96555876302" aria-label="اتصل الآن"><i class="fa-solid fa-phone"></i></a>
 </div>
 
-<script>
-document.querySelectorAll(".ba").forEach(function(box){
-  var r=box.querySelector("input"),b=box.querySelector(".ba-before"),l=box.querySelector(".ba-line");
-  function u(){var v=r.value;b.style.clipPath="inset(0 "+(100-v)+"% 0 0)";l.style.left=v+"%";}
-  r.addEventListener("input",u);u();
-});
-</script>
 
 <div id="baImgBox" onclick="baClose()"><span class="ba-close">&times;</span><img id="baImg" alt=""></div>
 <div id="baVideoBox" onclick="if(event.target===this)baClose()"><span class="ba-close" onclick="baClose()">&times;</span><video id="baVideo" controls playsinline></video></div>
 
 <script>
 var PROJ_STEP=3;
-var projCards=[].slice.call(document.querySelectorAll("#projGrid .proj-card"));
+var projCards=[];
 var projShown=0;
 function projLoadVid(card){
   card.querySelectorAll("video[data-src]").forEach(function(v){
@@ -632,7 +489,7 @@ function projRender(){
   document.getElementById("projMore").hidden=projShown>=projCards.length;
 }
 function projShowMore(){projShown+=PROJ_STEP;projRender();}
-projShown=PROJ_STEP;projRender();
+function projInit(){projCards=[].slice.call(document.querySelectorAll("#projGrid .proj-card"));projShown=PROJ_STEP;projRender();}
 function baOpenImg(src){document.getElementById("baImg").src=src;document.getElementById("baImgBox").style.display="flex";}
 function baOpenVideo(src){var v=document.getElementById("baVideo");v.src=src;document.getElementById("baVideoBox").style.display="flex";v.play();}
 function baClose(){
@@ -642,9 +499,9 @@ function baClose(){
 }
 </script>
 
+<script src="content.js"></script>
 </body>
 </html>
-
 
 
 
