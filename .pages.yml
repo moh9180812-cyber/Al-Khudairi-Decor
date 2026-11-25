@@ -1,0 +1,64 @@
+media:
+  - name: images
+    label: الصور
+    input: imgs
+    output: imgs
+    extensions: [jpg, jpeg, png, webp]
+  - name: videos
+    label: الفيديوهات
+    input: vids
+    output: vids
+    extensions: [mp4, mov]
+
+content:
+  - name: services
+    label: الخدمات (3 كروت)
+    type: file
+    path: data/services.json
+    format: json
+    fields:
+      - name: items
+        label: الخدمات
+        type: object
+        list: true
+        fields:
+          - { name: image, label: الصورة, type: image, options: { media: images } }
+          - { name: title, label: العنوان, type: string }
+          - { name: text, label: الوصف, type: text }
+
+  - name: gallery
+    label: معرض الأعمال
+    type: file
+    path: data/gallery.json
+    format: json
+    fields:
+      - name: albums
+        label: المعارض
+        type: object
+        list: true
+        fields:
+          - { name: title, label: اسم المعرض, type: string }
+          - { name: images, label: الصور (أول صورة هي الغلاف), type: image, list: true, options: { media: images } }
+
+  - name: before-after
+    label: قبل وبعد
+    type: file
+    path: data/before-after.json
+    format: json
+    fields:
+      - name: sliders
+        label: سلايدر قبل وبعد (الأعلى في الصفحة)
+        type: object
+        list: true
+        fields:
+          - { name: before, label: صورة قبل, type: image, options: { media: images } }
+          - { name: after, label: صورة بعد, type: image, options: { media: images } }
+      - name: projects
+        label: كل مشاريع قبل وبعد (املأ صورة أو فيديو لكل جانب)
+        type: object
+        list: true
+        fields:
+          - { name: before_image, label: قبل - صورة, type: image, options: { media: images } }
+          - { name: before_video, label: قبل - فيديو, type: file, options: { media: videos } }
+          - { name: after_image, label: بعد - صورة, type: image, options: { media: images } }
+          - { name: after_video, label: بعد - فيديو, type: file, options: { media: videos } }
