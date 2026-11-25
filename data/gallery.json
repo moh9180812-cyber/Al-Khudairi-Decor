@@ -1,0 +1,56 @@
+{
+  "albums": [
+    {
+      "title": "معرض 1",
+      "images": [
+        "imgs/ph2.jpg",
+        "imgs/ph3.jpg",
+        "imgs/ph4.jpg",
+        "imgs/ph28.jpg",
+        "imgs/ph27.jpg",
+        "imgs/ph13.jpg",
+        "imgs/ph14.jpg",
+        "imgs/ph34.jpeg"
+      ]
+    },
+    {
+      "title": "معرض 2",
+      "images": [
+        "imgs/ph1.jpg",
+        "imgs/ph26.jpg",
+        "imgs/ph25.jpg",
+        "imgs/ph5.jpg",
+        "imgs/ph23.jpg",
+        "imgs/ph8.jpg",
+        "imgs/ph32.jpeg",
+        "imgs/ph33.jpeg"
+      ]
+    },
+    {
+      "title": "معرض 3",
+      "images": [
+        "imgs/ph9.jpg",
+        "imgs/ph22.jpg",
+        "imgs/ph21.jpg",
+        "imgs/ph20.jpg",
+        "imgs/ph19.jpg",
+        "imgs/ph7.jpg",
+        "imgs/ph30.jpeg",
+        "imgs/ph31.jpeg"
+      ]
+    },
+    {
+      "title": "معرض 4",
+      "images": [
+        "imgs/ph10.jpg",
+        "imgs/ph18.jpg",
+        "imgs/ph17.jpg",
+        "imgs/ph16.jpg",
+        "imgs/ph15.jpg",
+        "imgs/ph6.jpg",
+        "imgs/ph24.jpeg",
+        "imgs/ph29.jpeg"
+      ]
+    }
+  ]
+}
