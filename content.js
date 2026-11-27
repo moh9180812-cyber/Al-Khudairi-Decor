@@ -103,12 +103,45 @@
       var card = el("div", { "class": "proj-card" });
       card.appendChild(pm("قبل", p.before_video, p.before_image));
       card.appendChild(pm("بعد", p.after_video, p.after_image));
+      if (p.name || p.place) {
+        var cap = el("div", { "class": "proj-cap" });
+        if (p.name) cap.appendChild(el("strong", { text: p.name }));
+        if (p.place) cap.appendChild(el("span", { text: p.place }));
+        card.appendChild(cap);
+      }
       grid.appendChild(card);
     });
     if (typeof projInit === "function") projInit();
   }
 
+  function projFromRow(p) {
+    return {
+      before_video: p.before_type === "video" ? p.before_url : null,
+      before_image: p.before_type === "image" ? p.before_url : null,
+      after_video: p.after_type === "video" ? p.after_url : null,
+      after_image: p.after_type === "image" ? p.after_url : null,
+      name: p.name || "",
+      place: p.place || ""
+    };
+  }
+
+  window.kdLoadProjects = function () {
+    var grid = document.getElementById("projGrid");
+    if (grid) grid.innerHTML = "";
+    fetch("https://ohkytoubtcqnqqxxsrgq.supabase.co/rest/v1/projects?select=*&order=sort", {
+      headers: { apikey: "sb_publishable_GDJPyjmhjypYrvOzdrvjsw_5yHIsShe" }
+    }).then(function (r) {
+      if (!r.ok) throw new Error("sb");
+      return r.json();
+    }).then(function (rows) {
+      renderProjects({ projects: rows.map(projFromRow) });
+    }).catch(function () {
+      load("before-after.json").then(renderProjects).catch(function () {});
+    });
+  };
+
   load("services.json").then(renderServices).catch(function () {});
   load("gallery.json").then(renderGallery).catch(function () {});
-  load("before-after.json").then(function (d) { renderSliders(d); renderProjects(d); }).catch(function () {});
+  load("before-after.json").then(renderSliders).catch(function () {});
+  kdLoadProjects();
 })();
