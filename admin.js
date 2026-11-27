@@ -1,0 +1,114 @@
+/* لوحة تحكم الأدمن: تسجيل دخول + إضافة/حذف مشاريع (Supabase) */
+(function () {
+  var SUPABASE_URL = "https://ohkytoubtcqnqqxxsrgq.supabase.co";
+  var SUPABASE_KEY = "sb_publishable_GDJPyjmhjypYrvOzdrvjsw_5yHIsShe";
+  var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  window.KD_SB = sb;
+
+  function $(id) { return document.getElementById(id); }
+  function esc(s) { var d = document.createElement("div"); d.textContent = s || ""; return d.innerHTML; }
+
+  function openLogin() { $("admLogin").style.display = "flex"; }
+  function closeLogin() { $("admLogin").style.display = "none"; $("admErr").textContent = ""; }
+  function openPanel() { $("admPanel").style.display = "flex"; loadList(); }
+  function closePanel() { $("admPanel").style.display = "none"; }
+
+  window.admOpen = function () {
+    sb.auth.getSession().then(function (r) {
+      if (r.data.session) openPanel(); else openLogin();
+    });
+  };
+  window.admCloseLogin = closeLogin;
+  window.admClosePanel = closePanel;
+
+  window.admLogin = function () {
+    var email = $("admEmail").value.trim();
+    var pass = $("admPass").value;
+    $("admErr").textContent = "";
+    $("admLoginBtn").disabled = true;
+    sb.auth.signInWithPassword({ email: email, password: pass }).then(function (r) {
+      $("admLoginBtn").disabled = false;
+      if (r.error) { $("admErr").textContent = "بيانات الدخول غير صحيحة"; return; }
+      closeLogin(); openPanel();
+    });
+  };
+
+  window.admLogout = function () {
+    sb.auth.signOut().then(function () { closePanel(); location.reload(); });
+  };
+
+  function thumb(p) {
+    var src = p.before_type === "video" ? p.after_url : p.before_url;
+    if (p.before_type === "video" && p.after_type === "video") {
+      return '<video src="' + esc(p.before_url) + '" muted preload="metadata"></video>';
+    }
+    return '<img src="' + esc(src) + '" alt="">';
+  }
+
+  function loadList() {
+    sb.from("projects").select("*").order("sort").then(function (r) {
+      var box = $("admList");
+      if (r.error) { box.innerHTML = "<p>تعذر تحميل المشاريع</p>"; return; }
+      if (!r.data.length) { box.innerHTML = "<p>لا توجد مشاريع بعد</p>"; return; }
+      box.innerHTML = r.data.map(function (p) {
+        var cap = esc(p.name || "بدون اسم") + (p.place ? " — " + esc(p.place) : "");
+        return '<div class="adm-row">' + thumb(p) +
+          '<span class="adm-cap">' + cap + "</span>" +
+          '<button type="button" class="adm-del" onclick="admDel(\'' + p.id + '\')">حذف</button></div>';
+      }).join("");
+    });
+  }
+
+  window.admDel = function (id) {
+    if (!confirm("حذف هذا المشروع نهائياً؟")) return;
+    sb.from("projects").delete().eq("id", id).then(function (r) {
+      if (r.error) { alert("فشل الحذف"); return; }
+      loadList(); refreshSite();
+    });
+  };
+
+  function uploadOne(file, name) {
+    var ext = (file.name.match(/\.[a-z0-9]+$/i) || [".jpg"])[0].toLowerCase();
+    var path = name + ext;
+    return sb.storage.from("projects").upload(path, file, { upsert: true }).then(function (r) {
+      if (r.error) throw r.error;
+      return SUPABASE_URL + "/storage/v1/object/public/projects/" + path;
+    });
+  }
+
+  window.admAdd = function () {
+    var name = $("admName").value.trim();
+    var place = $("admPlace").value.trim();
+    var bf = $("admBefore").files[0];
+    var af = $("admAfter").files[0];
+    var msg = $("admAddMsg");
+    if (!bf || !af) { msg.textContent = "اختار صورة أو فيديو لقبل وبعد"; return; }
+    msg.textContent = "جاري الرفع...";
+    $("admAddBtn").disabled = true;
+    var id = Date.now().toString(36);
+    Promise.all([uploadOne(bf, id + "-before"), uploadOne(af, id + "-after")]).then(function (urls) {
+      return sb.from("projects").select("sort").order("sort", { ascending: false }).limit(1).then(function (m) {
+        var next = (m.data && m.data.length ? m.data[0].sort : 0) + 1;
+        return sb.from("projects").insert({
+          name: name, place: place, sort: next,
+          before_type: bf.type.indexOf("video") === 0 ? "video" : "image", before_url: urls[0],
+          after_type: af.type.indexOf("video") === 0 ? "video" : "image", after_url: urls[1]
+        });
+      });
+    }).then(function (r) {
+      $("admAddBtn").disabled = false;
+      if (r.error) { msg.textContent = "فشلت الإضافة"; return; }
+      msg.textContent = "✅ تمت الإضافة";
+      $("admName").value = ""; $("admPlace").value = "";
+      $("admBefore").value = ""; $("admAfter").value = "";
+      loadList(); refreshSite();
+    }).catch(function () {
+      $("admAddBtn").disabled = false;
+      msg.textContent = "فشل الرفع، حاول مرة أخرى";
+    });
+  };
+
+  function refreshSite() {
+    if (typeof kdLoadProjects === "function") kdLoadProjects(true);
+  }
+})();
