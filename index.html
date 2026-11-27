@@ -178,7 +178,6 @@ function closeGallery(galleryId) {
     <a href="#area">محيط العمل</a>
     <a href="#work">مجال عملنا</a>
     <a href="#about">من نحن</a>
-    <a href="#contact">تواصل معنا</a>
     <a href="#ba-all">كل مشاريع قبل وبعد</a>
   </nav>
 
@@ -325,12 +324,6 @@ function closeGallery(galleryId) {
 
 
     </section>
-      <section id="contact" class="contact">
-    <h2>تواصل معنا</h2>
-        <p id="textToCopy" dir="ltr" style="cursor: pointer;">+96555876302</p>
-        <p id="msg" style="color: green;">اضغط علي الرقم للنسخ</p>
-       
-  </section>
 
   <footer class="site-footer">
     <div class="ft-inner">
@@ -348,7 +341,6 @@ function closeGallery(galleryId) {
           <li><a href="#steps">خطوات العمل</a></li>
           <li><a href="#area">محيط العمل</a></li>
           <li><a href="#about">من نحن</a></li>
-          <li><a href="#contact">تواصل معنا</a></li>
         </ul>
       </div>
       <div class="ft-col">
@@ -432,28 +424,6 @@ function closeGallery(galleryId) {
   });
 </script>
 
-
-
-<script>
-  
-// نسخ رقم الهاتف
-
-
-function copyText() {
-    const text = document.getElementById("textToCopy").innerText;
-
-    navigator.clipboard.writeText(text)
-        .then(() => {
-            document.getElementById("msg").innerText = "تم النسخ ✔️";
-        })
-        .catch(err => {
-            document.getElementById("msg").innerText = "فشل النسخ ❌";
-        });
-}
-
-document.getElementById("textToCopy").addEventListener("click", copyText);
-  
-</script>
 
 <script>
   let current = 0;
@@ -601,7 +571,6 @@ function baClose(){
   <script src="content.js"></script>
 </body>
 </html>
-
 
 
 
