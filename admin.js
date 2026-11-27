@@ -108,6 +108,22 @@
     });
   };
 
+  sb.auth.onAuthStateChange(function (event) {
+    if (event === "PASSWORD_RECOVERY") {
+      var b = $("admReset"); if (b) b.style.display = "flex";
+    }
+  });
+
+  window.admSetPass = function () {
+    var p1 = $("admNewPass").value, p2 = $("admNewPass2").value;
+    var msg = $("admResetMsg");
+    if (p1.length < 6) { msg.textContent = "كلمة المرور 6 أحرف على الأقل"; return; }
+    if (p1 !== p2) { msg.textContent = "كلمتا المرور غير متطابقتين"; return; }
+    sb.auth.updateUser({ password: p1 }).then(function (r) {
+      msg.textContent = r.error ? "فشل التغيير، حاول مرة أخرى" : "✅ تم تغيير كلمة المرور";
+    });
+  };
+
   function refreshSite() {
     if (typeof kdLoadProjects === "function") kdLoadProjects(true);
   }
