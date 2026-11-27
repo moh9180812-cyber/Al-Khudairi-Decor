@@ -56,6 +56,34 @@
 .ba-sub{margin:50px 0 10px;color:#2f2e2c;font-size:1.5em}
 .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:1100px;margin:20px auto 0}
 .proj-card{display:flex;gap:8px;background:#f5f2ed;padding:10px;border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,.1)}
+.proj-card{flex-wrap:wrap}
+.proj-cap{width:100%;display:flex;flex-direction:column;align-items:center;gap:2px;padding:4px 2px 2px;color:#4a3f28;font-size:15px}
+.proj-cap strong{font-size:16px}
+.proj-cap span{color:#8a7a52;font-size:13px}
+.adm-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:9999;padding:16px}
+.adm-box{background:#fff;border-radius:14px;padding:22px;width:100%;max-width:380px;box-shadow:0 10px 40px rgba(0,0,0,.35);text-align:center}
+.adm-box h3{margin:0 0 14px;color:#4a3f28}
+.adm-box input[type=email],.adm-box input[type=password],.adm-box input[type=text]{width:100%;padding:10px;margin:6px 0;border:1px solid #d8cfc0;border-radius:8px;font-size:15px;box-sizing:border-box}
+.adm-btn{background:#b89b5e;color:#fff;border:0;border-radius:8px;padding:11px 20px;font-size:15px;cursor:pointer;width:100%;margin-top:8px}
+.adm-btn:disabled{opacity:.6}
+.adm-sec{background:transparent;color:#8a7a52;border:0;margin-top:10px;cursor:pointer;font-size:13px;text-decoration:underline}
+.adm-err{color:#b3261e;font-size:13px;min-height:18px;margin-top:6px}
+.adm-panel-box{max-width:520px;max-height:88vh;overflow-y:auto;text-align:right}
+.adm-list{margin:14px 0;border-top:1px solid #eee}
+.adm-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #eee}
+.adm-row img,.adm-row video{width:64px;height:64px;object-fit:cover;border-radius:8px;background:#eee;flex:none}
+.adm-row .adm-cap{flex:1;font-size:14px;color:#333}
+.adm-del{background:#c0392b;color:#fff;border:0;border-radius:6px;padding:7px 12px;cursor:pointer;font-size:13px;flex:none}
+.adm-add{border-top:1px solid #eee;padding-top:12px;margin-top:6px}
+.adm-add label{display:block;font-size:13px;color:#6b5d3f;margin:8px 0 4px;text-align:right}
+.adm-add input[type=file]{width:100%;font-size:13px}
+.adm-msg{font-size:13px;color:#2e7d32;min-height:18px;margin-top:6px;text-align:center}
+.adm-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.adm-top h3{margin:0}
+.adm-x{background:#eee;border:0;border-radius:8px;padding:7px 12px;cursor:pointer}
+.adm-out{background:none;border:0;color:#8a7a52;cursor:pointer;font-size:13px;text-decoration:underline}
+.adm-entry{cursor:pointer;text-decoration:underline;opacity:.85;font-size:12px}
+
 .proj-card.hidden{display:none}
 .pm{position:relative;width:50%;height:200px;border-radius:8px;overflow:hidden;background:#000;cursor:pointer}
 .pm img,.pm video{width:100%;height:100%;object-fit:cover;display:block}
@@ -333,7 +361,7 @@ function closeGallery(galleryId) {
         </div>
       </div>
     </div>
-    <div class="ft-copy">جميع الحقوق محفوظة © 2026 ديكور الخضيري</div>
+    <div class="ft-copy">جميع الحقوق محفوظة © 2026 ديكور الخضيري &nbsp;·&nbsp; <span class="adm-entry" onclick="admOpen()">دخول الأدمن</span></div>
   </footer>
 
 
@@ -499,7 +527,46 @@ function baClose(){
 }
 </script>
 
-<script src="content.js"></script>
+<div class="adm-overlay" id="admLogin" dir="rtl">
+    <div class="adm-box">
+      <h3>دخول الأدمن</h3>
+      <input type="email" id="admEmail" placeholder="البريد الإلكتروني" dir="ltr">
+      <input type="password" id="admPass" placeholder="كلمة المرور" dir="ltr">
+      <div class="adm-err" id="admErr"></div>
+      <button type="button" class="adm-btn" id="admLoginBtn" onclick="admLogin()">دخول</button>
+      <button type="button" class="adm-sec" onclick="admCloseLogin()">إلغاء</button>
+    </div>
+  </div>
+
+  <div class="adm-overlay" id="admPanel" dir="rtl">
+    <div class="adm-box adm-panel-box">
+      <div class="adm-top">
+        <h3>لوحة التحكم — المشاريع</h3>
+        <div>
+          <button type="button" class="adm-out" onclick="admLogout()">تسجيل خروج</button>
+          <button type="button" class="adm-x" onclick="admClosePanel()">✕</button>
+        </div>
+      </div>
+      <div class="adm-add">
+        <h3>إضافة مشروع</h3>
+        <label>اسم المشروع</label>
+        <input type="text" id="admName" placeholder="مثال: فيلا — تشطيب كامل">
+        <label>المكان / المنطقة</label>
+        <input type="text" id="admPlace" placeholder="مثال: السالمية">
+        <label>صورة أو فيديو "قبل"</label>
+        <input type="file" id="admBefore" accept="image/*,video/*">
+        <label>صورة أو فيديو "بعد"</label>
+        <input type="file" id="admAfter" accept="image/*,video/*">
+        <div class="adm-msg" id="admAddMsg"></div>
+        <button type="button" class="adm-btn" id="admAddBtn" onclick="admAdd()">إضافة المشروع</button>
+      </div>
+      <div class="adm-list" id="admList"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="admin.js"></script>
+  <script src="content.js"></script>
 </body>
 </html>
 
