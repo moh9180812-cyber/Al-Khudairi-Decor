@@ -74,6 +74,7 @@
 .adm-row img,.adm-row video{width:64px;height:64px;object-fit:cover;border-radius:8px;background:#eee;flex:none}
 .adm-row .adm-cap{flex:1;font-size:14px;color:#333}
 .adm-del{background:#c0392b;color:#fff;border:0;border-radius:6px;padding:7px 12px;cursor:pointer;font-size:13px;flex:none}
+.adm-edit{background:#8a6d2f;margin-left:6px}
 .adm-add{border-top:1px solid #eee;padding-top:12px;margin-top:6px}
 .adm-add label{display:block;font-size:13px;color:#6b5d3f;margin:8px 0 4px;text-align:right}
 .adm-add input[type=file]{width:100%;font-size:13px}
@@ -570,6 +571,20 @@ function baClose(){
         <div class="adm-msg" id="admAddMsg"></div>
         <button type="button" class="adm-btn" id="admAddBtn" onclick="admAdd()">إضافة المشروع</button>
       </div>
+      <div class="adm-add" id="admEditBox" style="display:none">
+        <h3>تعديل مشروع</h3>
+        <label>اسم المشروع</label>
+        <input type="text" id="admEditName">
+        <label>المكان / المنطقة</label>
+        <input type="text" id="admEditPlace">
+        <label>تغيير صورة أو فيديو "قبل" (اختياري)</label>
+        <input type="file" id="admEditBefore" accept="image/*,video/*">
+        <label>تغيير صورة أو فيديو "بعد" (اختياري)</label>
+        <input type="file" id="admEditAfter" accept="image/*,video/*">
+        <div class="adm-msg" id="admEditMsg"></div>
+        <button type="button" class="adm-btn" id="admEditBtn" onclick="admSaveEdit()">حفظ التعديل</button>
+        <button type="button" class="adm-btn" style="background:#555;margin-top:6px" onclick="admCancelEdit()">إلغاء</button>
+      </div>
       <div class="adm-add">
         <h3>صورة قسم "من نحن"</h3>
         <label>اختر صورة جديدة</label>
@@ -582,7 +597,7 @@ function baClose(){
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="admin.js?v=3"></script>
+  <script src="admin.js?v=4"></script>
   <script src="content.js"></script>
 </body>
 </html>
