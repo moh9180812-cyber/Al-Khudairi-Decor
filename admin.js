@@ -8,6 +8,9 @@
   function $(id) { return document.getElementById(id); }
   function esc(s) { var d = document.createElement("div"); d.textContent = s || ""; return d.innerHTML; }
 
+  var admProjects = [];
+  var admEditId = null;
+
   function openLogin() { $("admLogin").style.display = "flex"; }
   function closeLogin() { $("admLogin").style.display = "none"; $("admErr").textContent = ""; }
   function openPanel() { $("admPanel").style.display = "flex"; loadList(); }
@@ -49,11 +52,13 @@
     sb.from("projects").select("*").order("sort").then(function (r) {
       var box = $("admList");
       if (r.error) { box.innerHTML = "<p>تعذر تحميل المشاريع</p>"; return; }
+      admProjects = r.data;
       if (!r.data.length) { box.innerHTML = "<p>لا توجد مشاريع بعد</p>"; return; }
       box.innerHTML = r.data.map(function (p) {
         var cap = esc(p.name || "بدون اسم") + (p.place ? " — " + esc(p.place) : "");
         return '<div class="adm-row">' + thumb(p) +
           '<span class="adm-cap">' + cap + "</span>" +
+          '<button type="button" class="adm-del adm-edit" onclick="admEdit(\'' + p.id + '\')">تعديل</button>' +
           '<button type="button" class="adm-del" onclick="admDel(\'' + p.id + '\')">حذف</button></div>';
       }).join("");
     });
@@ -100,6 +105,55 @@
       msg.textContent = "فشل حفظ الصورة، حاول مرة أخرى";
     }).then(function () {
       btn.disabled = false;
+    });
+  };
+
+  window.admEdit = function (id) {
+    var p = null;
+    for (var i = 0; i < admProjects.length; i++) { if (String(admProjects[i].id) === String(id)) p = admProjects[i]; }
+    if (!p) return;
+    admEditId = p.id;
+    $("admEditName").value = p.name || "";
+    $("admEditPlace").value = p.place || "";
+    $("admEditBefore").value = "";
+    $("admEditAfter").value = "";
+    $("admEditMsg").textContent = "";
+    $("admEditBox").style.display = "block";
+    $("admEditBox").scrollIntoView({ block: "center" });
+  };
+
+  window.admCancelEdit = function () {
+    admEditId = null;
+    $("admEditBox").style.display = "none";
+  };
+
+  window.admSaveEdit = function () {
+    if (!admEditId) return;
+    var name = $("admEditName").value.trim();
+    var place = $("admEditPlace").value.trim();
+    var bf = $("admEditBefore").files[0];
+    var af = $("admEditAfter").files[0];
+    var msg = $("admEditMsg");
+    var btn = $("admEditBtn");
+    btn.disabled = true;
+    msg.textContent = "جارٍ الحفظ...";
+    Promise.all([
+      bf ? uploadOne(bf, "proj-" + admEditId + "-before-" + Date.now()) : null,
+      af ? uploadOne(af, "proj-" + admEditId + "-after-" + Date.now()) : null
+    ]).then(function (urls) {
+      var upd = { name: name, place: place };
+      if (bf) { upd.before_url = urls[0]; upd.before_type = bf.type.indexOf("video") === 0 ? "video" : "image"; }
+      if (af) { upd.after_url = urls[1]; upd.after_type = af.type.indexOf("video") === 0 ? "video" : "image"; }
+      return sb.from("projects").update(upd).eq("id", admEditId);
+    }).then(function (r) {
+      btn.disabled = false;
+      if (r.error) { msg.textContent = "فشل الحفظ، حاول مرة أخرى"; return; }
+      msg.textContent = "✅ تم حفظ التعديل";
+      loadList(); refreshSite();
+      setTimeout(admCancelEdit, 800);
+    }).catch(function () {
+      btn.disabled = false;
+      msg.textContent = "فشل الحفظ، حاول مرة أخرى";
     });
   };
 
