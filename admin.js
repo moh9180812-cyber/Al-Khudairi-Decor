@@ -76,6 +76,33 @@
     });
   }
 
+  /* تطبيق صورة قسم "من نحن" المحفوظة عند تحميل الصفحة */
+  sb.from("site_settings").select("value").eq("key", "about_image").maybeSingle().then(function (r) {
+    if (r.data && r.data.value) { var im = $("aboutImg"); if (im) im.src = r.data.value; }
+  });
+
+  window.admSaveAbout = function () {
+    var f = $("admAboutFile").files[0];
+    var msg = $("admAboutMsg");
+    var btn = $("admAboutBtn");
+    if (!f) { msg.textContent = "اختر صورة أولاً"; return; }
+    btn.disabled = true;
+    msg.textContent = "جارٍ رفع الصورة...";
+    uploadOne(f, "site/about-" + Date.now()).then(function (url) {
+      return sb.from("site_settings").upsert({ key: "about_image", value: url }).then(function (r) {
+        if (r.error) throw r.error;
+        var im = $("aboutImg");
+        if (im) im.src = url;
+        msg.textContent = "تم حفظ الصورة بنجاح";
+        $("admAboutFile").value = "";
+      });
+    }).catch(function () {
+      msg.textContent = "فشل حفظ الصورة، حاول مرة أخرى";
+    }).then(function () {
+      btn.disabled = false;
+    });
+  };
+
   window.admAdd = function () {
     var name = $("admName").value.trim();
     var place = $("admPlace").value.trim();
