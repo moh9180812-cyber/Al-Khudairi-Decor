@@ -290,7 +290,7 @@ function closeGallery(galleryId) {
 
   <section id="about" class="about">
     <h2>من نحن</h2>
-    <img loading="lazy" decoding="async" src="imgs/WhatsApp Image 2025-11-20 at 3.16.27 PM.jpeg" alt="المهندس محمد الخضيري" style="width:220px;height:220px;border-radius:50%;object-fit:cover;display:block;margin:20px auto;box-shadow:0 4px 14px rgba(0,0,0,.25);">
+    <img id="aboutImg" loading="lazy" decoding="async" src="imgs/WhatsApp Image 2025-11-20 at 3.16.27 PM.jpeg" alt="المهندس محمد الخضيري" style="width:220px;height:220px;border-radius:50%;object-fit:cover;display:block;margin:20px auto;box-shadow:0 4px 14px rgba(0,0,0,.25);">
     <p>
       نحن في <strong>ديكور الخضيري</strong> بقيادة المهندس <strong>محمد الخضيري</strong> نقدم خبرة تمتد لأكثر من 10 سنوات في مجال الدهانات والديكورات الداخلية.
       نحرص على تنفيذ كل مشروع بدقة عالية ولمسة فنية تجمع بين الفخامة والجودة لتلبية ذوق كل عميل.
@@ -570,16 +570,22 @@ function baClose(){
         <div class="adm-msg" id="admAddMsg"></div>
         <button type="button" class="adm-btn" id="admAddBtn" onclick="admAdd()">إضافة المشروع</button>
       </div>
+      <div class="adm-add">
+        <h3>صورة قسم "من نحن"</h3>
+        <label>اختر صورة جديدة</label>
+        <input type="file" id="admAboutFile" accept="image/*">
+        <div class="adm-msg" id="admAboutMsg"></div>
+        <button type="button" class="adm-btn" id="admAboutBtn" onclick="admSaveAbout()">حفظ الصورة</button>
+      </div>
       <div class="adm-list" id="admList"></div>
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="admin.js?v=2"></script>
+  <script src="admin.js?v=3"></script>
   <script src="content.js"></script>
 </body>
 </html>
-
 
 
 
