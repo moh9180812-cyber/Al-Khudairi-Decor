@@ -110,7 +110,7 @@ footer.site-footer{background:#1f1f1f;color:#d9d4cb;text-align:right;padding:40p
 .ft-social{display:flex;gap:12px;margin-top:6px}
 .ft-social a{width:42px;height:42px;border-radius:50%;background:#333;color:#d4af37;display:flex;align-items:center;justify-content:center;font-size:20px;text-decoration:none;transition:.25s}
 .ft-social a:hover{background:#d4af37;color:#1f1f1f}
-.ft-copy{margin-top:30px;padding:16px 0 90px;border-top:1px solid #3a3a3a;text-align:center;color:#a9a399;font-size:.9em}
+.ft-copy{margin-top:30px;padding:10px 0;border-top:1px solid #3a3a3a;text-align:center;color:#a9a399;font-size:.9em}
 @media(max-width:600px){footer.site-footer{text-align:center}.ft-social{justify-content:center}.ft-links{max-width:300px;margin:0 auto;text-align:center}}
 #textToCopy{font-size:1.4em !important;font-weight:700;color:#f5f2ed}
 #msg{color:#d4af37 !important;font-size:.95em !important}
@@ -535,6 +535,16 @@ function baClose(){
       <div class="adm-err" id="admErr"></div>
       <button type="button" class="adm-btn" id="admLoginBtn" onclick="admLogin()">دخول</button>
       <button type="button" class="adm-sec" onclick="admCloseLogin()">إلغاء</button>
+    </div>
+  </div>
+
+  <div class="adm-overlay" id="admReset" dir="rtl">
+    <div class="adm-box">
+      <h3>تعيين كلمة مرور جديدة</h3>
+      <input type="password" id="admNewPass" placeholder="كلمة المرور الجديدة" dir="ltr">
+      <input type="password" id="admNewPass2" placeholder="تأكيد كلمة المرور" dir="ltr">
+      <div class="adm-err" id="admResetMsg"></div>
+      <button type="button" class="adm-btn" onclick="admSetPass()">حفظ كلمة المرور</button>
     </div>
   </div>
 
