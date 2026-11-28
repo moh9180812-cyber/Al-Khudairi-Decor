@@ -112,13 +112,11 @@
   function loadReviews() {
     sb.from("reviews").select("*").order("created_at").then(function (r) {
       if (r.error || !r.data) return;
-      var sec = $("reviews");
-      if (sec) sec.style.display = r.data.length ? "" : "none";
       var grid = $("reviewsList");
       if (grid) {
-        grid.innerHTML = r.data.map(function (v) {
+        grid.innerHTML = r.data.length ? r.data.map(function (v) {
           return '<img loading="lazy" decoding="async" src="' + esc(v.image_url) + '" alt="رأي عميل">';
-        }).join("");
+        }).join("") : '<p style="grid-column:1/-1;text-align:center;color:#777;padding:18px">لا توجد آراء الآن</p>';
       }
       var lst = $("admRevList");
       if (lst) {
