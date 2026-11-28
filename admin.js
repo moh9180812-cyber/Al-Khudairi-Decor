@@ -108,15 +108,45 @@
     });
   };
 
-  /* آراء العملاء: عرض عام + إضافة/حذف من اللوحة */
+  /* آراء العملاء: سلايدر عام + إضافة/حذف من اللوحة */
+  var revIndex = 0, revCount = 0;
+  function revVisible() {
+    var w = window.innerWidth;
+    return w >= 1024 ? 3 : (w >= 640 ? 2 : 1);
+  }
+  function revUpdate() {
+    var track = $("reviewsList");
+    if (!track || !track.parentElement) return;
+    var vis = revVisible();
+    var slideW = track.parentElement.clientWidth / vis;
+    track.style.justifyContent = (revCount > 0 && revCount <= vis) ? "center" : "flex-start";
+    track.style.transform = "translateX(" + (revIndex * slideW) + "px)";
+    var show = revCount > vis;
+    var prev = $("revPrev"), next = $("revNext");
+    if (prev) prev.style.display = show ? "" : "none";
+    if (next) next.style.display = show ? "" : "none";
+  }
+  window.revGo = function (dir) {
+    if (!revCount) return;
+    revIndex = (revIndex + dir + revCount) % revCount;
+    revUpdate();
+  };
+  window.addEventListener("resize", function () {
+    if (revIndex >= revCount) revIndex = 0;
+    revUpdate();
+  });
+
   function loadReviews() {
     sb.from("reviews").select("*").order("created_at").then(function (r) {
       if (r.error || !r.data) return;
       var grid = $("reviewsList");
       if (grid) {
-        grid.innerHTML = r.data.length ? r.data.map(function (v) {
-          return '<img loading="lazy" decoding="async" src="' + esc(v.image_url) + '" alt="رأي عميل">';
-        }).join("") : '<p style="grid-column:1/-1;text-align:center;color:#777;padding:18px">لا توجد آراء الآن</p>';
+        revCount = r.data.length;
+        revIndex = 0;
+        grid.innerHTML = revCount ? r.data.map(function (v) {
+          return '<div class="rev-slide"><img loading="lazy" decoding="async" src="' + esc(v.image_url) + '" alt="رأي عميل"></div>';
+        }).join("") : '<p class="rev-empty">لا توجد آراء الآن</p>';
+        revUpdate();
       }
       var lst = $("admRevList");
       if (lst) {
