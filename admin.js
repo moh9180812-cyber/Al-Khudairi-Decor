@@ -112,6 +112,8 @@
   function loadReviews() {
     sb.from("reviews").select("*").order("created_at").then(function (r) {
       if (r.error || !r.data) return;
+      var sec = $("reviews");
+      if (sec) sec.style.display = r.data.length ? "" : "none";
       var grid = $("reviewsList");
       if (grid) {
         grid.innerHTML = r.data.map(function (v) {
