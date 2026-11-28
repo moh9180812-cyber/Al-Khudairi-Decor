@@ -15,6 +15,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <style>
 html{scroll-behavior:smooth}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;padding:10px 16px 24px}
+.reviews-grid img{width:100%;border-radius:12px;box-shadow:0 3px 12px rgba(0,0,0,.25);display:block}
 
 /* ===== إضافات النسخة المعدلة ===== */
 .quick-contact{position:fixed;bottom:20px;left:20px;z-index:999;display:flex;flex-direction:column;gap:12px}
@@ -180,6 +182,7 @@ function closeGallery(galleryId) {
     <a href="#area">محيط العمل</a>
     <a href="#work">مجال عملنا</a>
     <a href="#about">من نحن</a>
+    <a href="#reviews">آراء العملاء</a>
     <a href="#ba-all">كل مشاريع قبل وبعد</a>
   </nav>
 
@@ -327,6 +330,11 @@ function closeGallery(galleryId) {
 
     </section>
 
+  <section id="reviews" class="reviews">
+    <h2>آراء العملاء</h2>
+    <div id="reviewsList" class="reviews-grid"></div>
+  </section>
+
   <footer class="site-footer">
     <div class="ft-inner">
       <div class="ft-col">
@@ -343,6 +351,7 @@ function closeGallery(galleryId) {
           <li><a href="#steps">خطوات العمل</a></li>
           <li><a href="#area">محيط العمل</a></li>
           <li><a href="#about">من نحن</a></li>
+          <li><a href="#reviews">آراء العملاء</a></li>
         </ul>
       </div>
       <div class="ft-col">
@@ -564,16 +573,23 @@ function baClose(){
         <div class="adm-msg" id="admAboutMsg"></div>
         <button type="button" class="adm-btn" id="admAboutBtn" onclick="admSaveAbout()">حفظ الصورة</button>
       </div>
+      <div class="adm-add">
+        <h3>آراء العملاء</h3>
+        <label>أضف صورة رأي عميل (سكرين شوت من المحادثة)</label>
+        <input type="file" id="admRevFile" accept="image/*">
+        <div class="adm-msg" id="admRevMsg"></div>
+        <button type="button" class="adm-btn" id="admRevBtn" onclick="admAddReview()">إضافة الرأي</button>
+        <div class="adm-list" id="admRevList"></div>
+      </div>
       <div class="adm-list" id="admList"></div>
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="admin.js?v=4"></script>
+  <script src="admin.js?v=5"></script>
   <script src="content.js"></script>
 </body>
 </html>
-
 
 
 
