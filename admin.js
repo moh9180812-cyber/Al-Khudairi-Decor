@@ -108,6 +108,53 @@
     });
   };
 
+  /* آراء العملاء: عرض عام + إضافة/حذف من اللوحة */
+  function loadReviews() {
+    sb.from("reviews").select("*").order("created_at").then(function (r) {
+      if (r.error || !r.data) return;
+      var grid = $("reviewsList");
+      if (grid) {
+        grid.innerHTML = r.data.map(function (v) {
+          return '<img loading="lazy" decoding="async" src="' + esc(v.image_url) + '" alt="رأي عميل">';
+        }).join("");
+      }
+      var lst = $("admRevList");
+      if (lst) {
+        lst.innerHTML = r.data.map(function (v) {
+          return '<div class="adm-row"><img src="' + esc(v.image_url) + '" alt="" style="width:56px;height:56px;object-fit:cover;border-radius:8px">' +
+            '<button type="button" class="adm-del" onclick="admDelReview(\'' + v.id + '\')">حذف</button></div>';
+        }).join("");
+      }
+    });
+  }
+  loadReviews();
+
+  window.admAddReview = function () {
+    var f = $("admRevFile").files[0];
+    var msg = $("admRevMsg");
+    var btn = $("admRevBtn");
+    if (!f) { msg.textContent = "اختر صورة أولاً"; return; }
+    btn.disabled = true;
+    msg.textContent = "جارٍ رفع الصورة...";
+    uploadOne(f, "reviews/review-" + Date.now()).then(function (url) {
+      return sb.from("reviews").insert({ image_url: url }).then(function (r) {
+        if (r.error) { msg.textContent = "فشل الحفظ، حاول مرة أخرى"; return; }
+        msg.textContent = "✅ تمت الإضافة";
+        $("admRevFile").value = "";
+        loadReviews();
+      });
+    }).catch(function () { msg.textContent = "فشل رفع الصورة، حاول مرة أخرى"; })
+      .then(function () { btn.disabled = false; });
+  };
+
+  window.admDelReview = function (id) {
+    if (!confirm("حذف هذا الرأي نهائياً؟")) return;
+    sb.from("reviews").delete().eq("id", id).then(function (r) {
+      if (r.error) { alert("فشل الحذف"); return; }
+      loadReviews();
+    });
+  };
+
   window.admEdit = function (id) {
     var p = null;
     for (var i = 0; i < admProjects.length; i++) { if (String(admProjects[i].id) === String(id)) p = admProjects[i]; }
